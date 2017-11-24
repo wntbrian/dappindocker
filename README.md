@@ -1,7 +1,7 @@
 # Dapp in Docker
 
 ----
-Контейнер для сборки контейнеро с помощью dapp от компании flant
+Контейнер для сборки контейнера с помощью dapp от компании flant
 https://github.com/flant/dapp
 ----
 ## Настройка GitLab Runner
