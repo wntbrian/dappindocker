@@ -1,0 +1,32 @@
+dimg do
+  docker.from 'ruby:latest'
+
+  mount '/var/lib/apt/lists' do
+    from :tmp_dir
+  end
+  mount '/var/cache/apt/archives' do
+    from :tmp_dir
+  end
+  mount '/usr/local/rvm/gems/cache' do
+    from :tmp_dir
+  end
+  mount '/tmp' do
+    from :tmp_dir
+  end
+
+  shell do
+    version '1'
+    before_install do
+      run 'apt-get update',
+          'apt-get install -y libssh2-1-dev cmake gettext-base'
+    end
+    install do
+      run 'curl https://get.docker.com/builds/Linux/x86_64/docker-1.13.1.tgz | tar -xz -C /tmp',
+      'mv /tmp/docker/docker /usr/local/bin/docker'
+    end
+    setup do
+        version '0.19.6'
+        run 'gem install dapp'
+    end
+  end
+end
