@@ -22,8 +22,11 @@ https://github.com/flant/dapp
     shm_size = 0
   [runners.cache]
 ```
+
 ### Поддержка сборки контейнера через docker build
+```
 docker build --rm -f Dockerfile -t dappindocker:latest .
+```
 
 ### Расширение сборочного контейнра требуемыми утилитами
 ```
@@ -31,4 +34,9 @@ before_setup do
    run 'curl -sL https://deb.nodesource.com/setup_8.x | bash -',
    'apt-get install -y nodejs'
 end
+```
+
+### Сборка с помощью dappindocker "в ручную"
+```
+docker run --rm -v `pwd`/Dappfile:/Dappfile -v /var/run/docker.sock:/var/run/docker.sock dappindocker dapp dimg build
 ```
