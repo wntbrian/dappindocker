@@ -22,6 +22,8 @@ https://github.com/flant/dapp
     shm_size = 0
   [runners.cache]
 ```
+### Поддержка сборки контейнера через docker build
+docker build --rm -f Dockerfile -t dappindocker:latest .
 
 ### Расширение сборочного контейнра требуемыми утилитами
 ```
