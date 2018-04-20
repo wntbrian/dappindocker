@@ -36,7 +36,11 @@ before_setup do
 end
 ```
 
-### Сборка с помощью dappindocker "в ручную"
+### Сборка с помощью dappindocker "в ручную" (только Dapplife)
 ```
 docker run --rm -v `pwd`/Dappfile:/Dappfile -v /var/run/docker.sock:/var/run/docker.sock dappindocker dapp dimg build
+```
+### Сборка с помощью dappindocker "в ручную" (папка с файлами)
+```
+docker run --rm -v `pwd`:/src -v /var/run/docker.sock:/var/run/docker.sock -v /tmp/dapp:/tmp -w=/src dappindocker dapp dimg build --use-system-tar
 ```
