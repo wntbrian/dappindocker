@@ -4,6 +4,10 @@
 Контейнер для сборки контейнера с помощью dapp от компании flant
 https://github.com/flant/dapp
 ----
+## Docker образ Dapp
+https://hub.docker.com/r/wntbrian/dappindocker/
+docker pull wntbrian/dappindocker
+
 ## Настройка GitLab Runner
 Особенность - это докер сокет для управления докером хоста, и /tmp - для корректной работы кэша Dapp
 ```
@@ -38,9 +42,9 @@ end
 
 ### Сборка с помощью dappindocker "в ручную" (только Dapplife)
 ```
-docker run --rm -v `pwd`/Dappfile:/Dappfile -v /var/run/docker.sock:/var/run/docker.sock dappindocker dapp dimg build
+docker run --rm -v `pwd`/Dappfile:/Dappfile -v /var/run/docker.sock:/var/run/docker.sock wntbrian/dappindocker dapp dimg build
 ```
 ### Сборка с помощью dappindocker "в ручную" (папка с файлами)
 ```
-docker run --rm -v `pwd`:/src -v /var/run/docker.sock:/var/run/docker.sock -v /tmp/dapp:/tmp -w=/src dappindocker dapp dimg build --use-system-tar
+docker run --rm -v `pwd`:/src -v /var/run/docker.sock:/var/run/docker.sock -v /tmp/dapp:/tmp -w=/src wntbrian/dappindocker dapp dimg build --use-system-tar
 ```
